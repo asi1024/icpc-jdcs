@@ -1,0 +1,45 @@
+$doctype 5
+  <html lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <link rel="stylesheet" href="/css/default.css" type="text/css">
+
+    <title>KJDCS
+  <body>
+    <div class="header">
+      <h1 id="logo">KJD Contest System
+      <span class="username">You are #{user_id}. |
+      <span class="index-link">
+        <a href="/">Top
+        |
+      <span class="status-link">
+        <a href="/status">Status
+        |
+      <span class="current-time">Current Time:
+        <strong>#{currentTime}
+
+    <div class="main">
+      <h1>Contest
+      <table summary="contest table">
+        <thead>
+          <tr>
+            <th>Contest Name
+            <th>Start time
+            <th>End time
+            <th>Problem Setter
+            <th>Edit
+
+        $forall (i, c) <- contests
+          <tbody>
+            <tr>
+            <td><a class="white" href="contest/#{show i}">#{contestName c}
+            <td>#{show $ contestStart c}
+            <td>#{show $ contestEnd c}
+            <td>#{contestSetter c}
+            <td><a href="setcontest?id=1">Edit
+
+      <h1>Setting
+      <ul>
+        <li>
+          <a href="setcontest">Set Contest
