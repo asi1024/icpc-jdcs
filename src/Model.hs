@@ -1,5 +1,13 @@
-{-# LANGUAGE FlexibleContexts, GADTs, OverloadedStrings #-}
-{-# LANGUAGE TemplateHaskell, TypeFamilies, QuasiQuotes #-}
+{-# LANGUAGE EmptyDataDecls             #-}
+{-# LANGUAGE FlexibleContexts           #-}
+{-# LANGUAGE GADTs                      #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE MultiParamTypeClasses      #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE QuasiQuotes                #-}
+{-# LANGUAGE TemplateHaskell            #-}
+{-# LANGUAGE TypeFamilies               #-}
+
 module Model where
 
 import Data.Time
@@ -11,10 +19,11 @@ Contest
   name String
   start UTCTime
   end UTCTime
+  problems [String]
   setter String
 Problem
+  name String
   contest String
-  problem String
   input String
   output String
 Status

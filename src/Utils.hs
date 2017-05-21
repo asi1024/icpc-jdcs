@@ -4,12 +4,10 @@ import Control.Monad.Reader
 
 import Data.Time
 
-import System.Locale (defaultTimeLocale)
-
 toZonedTime :: String -> IO ZonedTime
 toZonedTime s = do
   timezone <- getCurrentTimeZone
-  return $ readTime defaultTimeLocale "%Y%m%d%H%M%S %Z"
+  return $ parseTimeOrError True defaultTimeLocale "%Y%m%d%H%M%S %Z"
     (s ++ " " ++ show timezone)
 
 fromZonedTime :: ZonedTime -> String
